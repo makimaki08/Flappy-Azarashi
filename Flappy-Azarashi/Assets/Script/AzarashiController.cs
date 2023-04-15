@@ -7,11 +7,17 @@ public class AzarashiController : MonoBehaviour
     Rigidbody2D rb2d;
     Animator animator;
     float angle;
+    bool isDead;
 
     public float maxHeight;
     public float flapVelocity;
     public float relativeVelocityX;
     public GameObject sprite;
+
+    public bool IsDead()
+    {
+        return isDead; // 死亡判定の公開
+    }
 
     void Awake()
     {
@@ -37,18 +43,40 @@ public class AzarashiController : MonoBehaviour
 
     public void Flap()
     {
+        // 死んでいれば、羽ばたかせない
+        if (isDead) return;
+
         // Velocityを直接書き換えて、上方向に加速
         rb2d.velocity = new Vector2(0.0f, flapVelocity);
     }
     void ApplyAngle()
     {
         // 現在の速度、相対速度から進んでいる角度を求める
-        float targetAngle = Mathf.Atan2(rb2d.velocity.y, relativeVelocityX) * Mathf.Rad2Deg;
+        float targetAngle;
+
+        // 死亡したら常にひっくり返る
+        if (isDead)
+        {
+            targetAngle = 180.0f;
+        }
+        else
+        {
+            targetAngle = Mathf.Atan2(rb2d.velocity.y, relativeVelocityX) * Mathf.Rad2Deg;
+
+        }
 
         // 回転アニメをスムージング
         angle = Mathf.Lerp(angle, targetAngle, Time.deltaTime * 10.0f);
 
         // Rotationの反映
         sprite.transform.localRotation = Quaternion.Euler(0.0f, 0.0f, angle);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (isDead) return;
+
+        // 何かにぶつかったら、死亡フラグを立てる
+        isDead = true;
     }
 }
