@@ -468,6 +468,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   azarashi: {fileID: 4677351120236196135}
   blocks: {fileID: 432613117}
+  scoreText: {fileID: 81603441}
+  stateText: {fileID: 357267965}
 --- !u!4 &499365217
 Transform:
   m_ObjectHideFlags: 0
