@@ -269,8 +269,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
-  startPosition: 8
-  endPosition: -8
+  startPosition: 10
+  endPosition: -10
 --- !u!114 &1973962057240366883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -283,8 +283,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87536955402974dca910e4ab2973d18c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minHeight: -1
-  maxHeight: 5
+  minHeight: -2
+  maxHeight: 7
   root: {fileID: 1973962057597173813}
 --- !u!1 &1973962057597173813
 GameObject:
