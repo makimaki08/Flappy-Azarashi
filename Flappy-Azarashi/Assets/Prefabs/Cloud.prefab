@@ -98,5 +98,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.3
-  startPosition: 8
-  endPosition: -8
+  startPosition: 14.5
+  endPosition: -14.5
