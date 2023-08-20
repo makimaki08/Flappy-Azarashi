@@ -45,7 +45,7 @@ public class GameController : MonoBehaviour
 
             case State.Gameover:
                 // タッチしたらシーンをリロード
-                if (Input.GetButtonDown("Fiere1")) Reload();
+                if (Input.GetButtonDown("Fire1")) Reload();
                 break;
         }
     }
